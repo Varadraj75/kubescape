@@ -506,4 +506,4 @@ Kubescape is a [Cloud Native Computing Foundation (CNCF) incubating project](htt
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/cncf-member/incubating/color/cncf-incubating-color.svg" width="300" alt="CNCF Incubating Project">
-</div>
+</div># test
