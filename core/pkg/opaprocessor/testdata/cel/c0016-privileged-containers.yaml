@@ -1,0 +1,19 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: kubescape-c0016-deny-privileged-containers
+spec:
+  matchConstraints:
+    resourceRules:
+    - apiGroups: [""]
+      apiVersions: ["v1"]
+      resources: ["pods"]
+      operations: ["CREATE", "UPDATE"]
+  validations:
+  - expression: >
+      object.spec.containers.all(c,
+        !has(c.securityContext) ||
+        !has(c.securityContext.privileged) ||
+        c.securityContext.privileged == false
+      )
+    message: "Privileged containers are not allowed"
